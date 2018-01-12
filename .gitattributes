@@ -16,7 +16,8 @@
 .npm
 
 # Dependency directories
-node_modules
+node_modules/*
+node_modules/.bin
 
 #Run-time test reports
 reports
