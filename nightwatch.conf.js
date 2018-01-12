@@ -1,14 +1,10 @@
 module.exports = {
-  "src_folders" : ["test"],
+  "src_folders" : ["tests"],
   "output_folder" : "reports",
- // "custom_commands_path" : "",
-  /"custom_assertions_path" : "",
- // "page_objects_path" : "",
- // "globals_path" : "",
-
+ 
   "selenium" : {
     "start_process" : true,
-    "server_path" : "./Downloads/selenium-server-standalone-3.8.1.jar",
+    "server_path" : "./node_modules/selenium-server-standalone-jar/jar/selenium-server-standalone-3.6.0.jar",
     "log_path" : "reports",
     "port" : 4444,
     "cli_args" : {
@@ -20,32 +16,40 @@ module.exports = {
 
   "test_settings" : {
     "default" : {
-      "launch_url" : "http://localhost",
+      "launch_url" : "https://www.dominos.com",
       "selenium_port"  : 4444,
       "selenium_host"  : "localhost",
       "silent": true,
+      "output" : true,
       "screenshots" : {
         "enabled" : false,
         "path" : ""
+      }
+    },
+    "desiredCapabilities": {
+      "name" : "gannett-assignment",
+      "tag" : "hannah",
+      "javascriptEnabled" : true,
+      "acceptSslCerts" : true
+    },
+      "globals" : {
+        "propertyData" : {
+        "baseURL":"${SITE_NAME}"
+      }, 
+      "selenium" : { 
+        "start_process" : false
+      }
+    },
+
+    "local-chrome" : {
+      "desiredCapabilities": {
+        "name" : "local-chrome",
+        "browserName" : "chrome"
       },
-      "desiredCapabilities": {
-        "browserName": 'chrome',
-        "marionette": true
-        javascriptEnabled: true,
-        acceptSslCerts: true
-      }
-    },
-
-    "chrome" : {
-      "desiredCapabilities": {
-        "browserName": "chrome"
-      }
-    },
-
-    "edge" : {
-      "desiredCapabilities": {
-        "browserName": "MicrosoftEdge"
+      
+      "selenium" : {
+        "start_process" : true
       }
     }
   }
-}
+};
